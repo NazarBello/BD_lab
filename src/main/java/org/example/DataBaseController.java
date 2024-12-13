@@ -27,27 +27,27 @@ public class DataBaseController {
     public void Execute(int choice) throws SQLException {
         switch (choice) {
             case 1:
-                dataBaseModel.Insert();
+                dataBaseModel.insert();
                 break;
 
             case 2:
-                dataBaseModel.Delete();
+                dataBaseModel.delete();
                 break;
 
             case 3:
-                dataBaseModel.Update();
+                dataBaseModel.update();
                 break;
 
             case 4:
-                dataBaseModel.Generate();
+                dataBaseModel.generate();
                 break;
 
             case 5:
-                dataBaseModel.Search();
+                dataBaseModel.search();
                 break;
 
             case 6:
-                dataBaseModel.Print();
+                dataBaseModel.print();
                 break;
 
             default:
