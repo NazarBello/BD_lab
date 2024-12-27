@@ -1,13 +1,15 @@
 package org.example;
 
+import org.hibernate.SessionFactory;
+
 import java.sql.SQLException;
 import java.util.Scanner;
 
 public class DataBaseController {
-    DataBaseModel dataBaseModel = null;
+    private final DataBaseModel dataBaseModel;
 
-    public DataBaseController(String JDBC_URL) throws SQLException {
-        dataBaseModel = new DataBaseModel(JDBC_URL);
+    public DataBaseController(SessionFactory sessionFactory) {
+        dataBaseModel = new DataBaseModel(sessionFactory);
     }
 
     public int showActions(){
@@ -30,7 +32,7 @@ public class DataBaseController {
                 dataBaseModel.insert();
                 break;
 
-            case 2:
+           /*case 2:
                 dataBaseModel.delete();
                 break;
 
@@ -48,7 +50,7 @@ public class DataBaseController {
 
             case 6:
                 dataBaseModel.print();
-                break;
+                break;*/
 
             default:
                 System.out.println("Invalid choice. Please try again.");

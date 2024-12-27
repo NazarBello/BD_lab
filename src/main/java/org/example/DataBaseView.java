@@ -1,20 +1,22 @@
 package org.example;
 
+import org.example.util.HibernateUtil;
+
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DataBaseView {
 
-    static final String JDBC_URL = "jdbc:postgresql://localhost:5432/postgres?currentSchema=public&user=postgres&password=postgres&password=1111";
+
 
     public void Process() throws SQLException {
-        var databaseController = new DataBaseController(JDBC_URL);
-        while( true){
+        // Use the new no-arg constructor in your DataBaseController
+        var databaseController = new DataBaseController(HibernateUtil.getSessionFactory());
+
+        while (true) {
             int action = databaseController.showActions();
             databaseController.Execute(action);
         }
-
-
     }
 
 
