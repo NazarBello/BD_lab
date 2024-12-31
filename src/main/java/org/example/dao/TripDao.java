@@ -1,11 +1,13 @@
 package org.example.dao;
 
+import org.example.builder.DateRangeBuilder;
 import org.example.entities.Trip;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import java.util.List;
+import java.util.Scanner;
 
 public class TripDao {
 
@@ -51,6 +53,11 @@ public class TripDao {
     public void updateTrip(Trip trip) {
         try (Session session = sessionFactory.openSession()) {
             Transaction tx = session.beginTransaction();
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Enter new title: ");
+            String newTitle = scanner.nextLine();
+            trip.setTitle(newTitle);
+            trip.setTripPeriod(DateRangeBuilder.dateRangeBuilder());
             session.merge(trip);
             tx.commit();
         }

@@ -37,8 +37,7 @@ public class Booking {
     private String bookingDescription;
 
 
-    @OneToOne
-    @JoinColumn(name = "accom_id")
+    @OneToOne(mappedBy = "booking")
     private Accommodation accommodation;
 
 

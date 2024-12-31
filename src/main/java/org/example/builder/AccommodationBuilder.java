@@ -20,7 +20,7 @@ public class AccommodationBuilder {
         System.out.println("Enter booking id: ");
         Long bookingId = scanner.nextLong();
         Booking booking = session.get(Booking.class, bookingId);
-        if (booking == null) {
+        if (booking != null) {
             accommodation.setBooking(booking);
 
         }

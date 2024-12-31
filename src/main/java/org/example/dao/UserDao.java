@@ -7,6 +7,7 @@ import org.example.entities.Users;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import java.util.List;
+import java.util.Scanner;
 
 public class UserDao {
 
@@ -57,6 +58,10 @@ public class UserDao {
     public void updateUser(Users user) {
         try (Session session = sessionFactory.openSession()) {
             Transaction tx = session.beginTransaction();
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Input new name:");
+            String name = scanner.nextLine();
+            user.setUsers_name(name);
             session.merge(user);  // or session.update(user) if it's attached
             tx.commit();
         }

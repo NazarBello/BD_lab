@@ -6,6 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import java.util.List;
+import java.util.Scanner;
 
 public class AccommodationDao {
 
@@ -51,6 +52,13 @@ public class AccommodationDao {
     public void updateAccommodation(Accommodation accomodation) {
         try (Session session = sessionFactory.openSession()) {
             Transaction tx = session.beginTransaction();
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Enter accommodation name: ");
+            accomodation.setName(scanner.nextLine());
+            System.out.println("Enter accommodation type: ");
+            accomodation.setType(scanner.nextLine());
+            System.out.println("Enter accommodation address: ");
+            accomodation.setAddress(scanner.nextLine());
             session.merge(accomodation);
             tx.commit();
         }

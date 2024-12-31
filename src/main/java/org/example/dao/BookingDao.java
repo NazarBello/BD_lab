@@ -1,11 +1,13 @@
 package org.example.dao;
 
+import org.example.builder.DateRangeBuilder;
 import org.example.entities.Booking;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import java.util.List;
+import java.util.Scanner;
 
 public class BookingDao {
 
@@ -49,6 +51,12 @@ public class BookingDao {
     public void updateBooking(Booking booking) {
         try (Session session = sessionFactory.openSession()) {
             Transaction tx = session.beginTransaction();
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Enter new booking description: ");
+            booking.setBookingDescription(scanner.nextLine());
+            booking.setBookingPeriod(DateRangeBuilder.dateRangeBuilder());
+            System.out.println("Enter new booking status: ");
+            booking.setStatus(scanner.nextBoolean());
             session.merge(booking);
             tx.commit();
         }

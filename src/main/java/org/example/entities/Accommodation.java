@@ -29,7 +29,8 @@ public class Accommodation {
     @Column(name = "type")
     private String type;
 
-    @OneToOne(mappedBy = "accommodation")
+    @OneToOne
+    @JoinColumn(name = "booking_id")
     private Booking booking;
 
     public Accommodation() {}

@@ -32,7 +32,7 @@ public class DataBaseController {
                 dataBaseModel.insert();
                 break;
 
-           /*case 2:
+           case 2:
                 dataBaseModel.delete();
                 break;
 
@@ -40,7 +40,7 @@ public class DataBaseController {
                 dataBaseModel.update();
                 break;
 
-            case 4:
+            /*case 4:
                 dataBaseModel.generate();
                 break;
 
